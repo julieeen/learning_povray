@@ -1,5 +1,3 @@
-// author:  Julian Fietkaus  
-
 #version 3.7;
 
 //************************************************************************
@@ -58,7 +56,7 @@
                             look_at   <10, 1.25 , 30>
                             }                             
                                                                          
-// Kamera auswählen
+// Kamera auswï¿½hlen
 camera{Camera_stand_front}                                                  
                                                                                
 
@@ -70,7 +68,7 @@ declare z_start = 1;      //  Startpunkt Halle
 declare y_start = 0;
 
 declare x_size = 60;
-declare z_size = 60;     // Größe der Halle
+declare z_size = 60;     // Grï¿½ï¿½e der Halle
 declare height = 8;
 
 declare pos_halle1 = <x_start,y_start,z_start>;     // realtive Hallenposition
@@ -100,11 +98,11 @@ declare Messhalle_mit_Eingang =
             box{<28.2,0,0> <34.8,2.8,2.1> pigment{color Blue}}
         }
         object{Eingang}
-        //    Messehallenflur, gefließt
+        //    Messehallenflur, geflieï¿½t
         box {
             pos_halle1+<0.1,0,0.1>,
             pos_halle2-<0.1,7.9,0.1>
-            pigment{ checker color rgb<1,1,1> color rgb<0.9,0.9,0.9> } // gefließter Boden
+            pigment{ checker color rgb<1,1,1> color rgb<0.9,0.9,0.9> } // geflieï¿½ter Boden
         }  
     }
    
@@ -116,7 +114,7 @@ declare p_front = <30,0,30>;
 declare p_top = <20,0,40>;
 
 
-//  ************  Gegenstände fuer Messestand modellieren *************************
+//  ************  Gegenstï¿½nde fuer Messestand modellieren *************************
 //  in Null modelliert, verschieben an Punkt!
 
 // Tisch mit runden Ecken
@@ -136,19 +134,19 @@ intersection{                           // Tisch mit runden Ecken
 
 // Posterhalter   
 declare poster = union{
-    box{<0,1.3,-0.5><0.01,2.3,0.5> texture{T_Wood12}}          // Plakatfläche
-    // Standfoto, wird über x-y Fläche aufgetragen, erst dann rotieren!
+    box{<0,1.3,-0.5><0.01,2.3,0.5> texture{T_Wood12}}          // Plakatflï¿½che
+    // Standfoto, wird ï¿½ber x-y Flï¿½che aufgetragen, erst dann rotieren!
     box{<0,0,0><1,1,0>  texture { pigment { image_map { png "texture1"}}}  rotate<0,-90,0> translate<0.02,1.3,-0.5>} 
     union{  
-        cylinder{ <0,0,0>,<0,1.5,0>,0.01 pigment{ color Black}}  // Ständer
-        cylinder{ <0,0,0>,<0,0.01,0>,0.2 texture{T_Wood12}}      // Standfuß
+        cylinder{ <0,0,0>,<0,1.5,0>,0.01 pigment{ color Black}}  // Stï¿½nder
+        cylinder{ <0,0,0>,<0,0.01,0>,0.2 texture{T_Wood12}}      // Standfuï¿½
     }
 }
 
-// Spotlight, von der Decke hängend
+// Spotlight, von der Decke hï¿½ngend
 declare lampe = union{  // Spotlight, Hallendecke 8m, bis auf 2.50 runter
     cylinder{<0,3,0>,<0,8,0>,0.005 pigment{color Black}}
-    difference{ // innerer, außerer Kegel für Lampe
+    difference{ // innerer, auï¿½erer Kegel fï¿½r Lampe
         cone { <0,3,0>,0.05, <0,2.9,0>, 0.09 pigment{ color Gray}} 
         cone { <0,2.95,0>,0.05, <0,2.89,0>, 0.06 pigment{ color Gray}}
     }
@@ -180,7 +178,7 @@ declare usb_cutout = box{usb_pos usb_pos+<0.014,0.0065,0.03> pigment{color Grey}
 
 // ******************************  Kartenleser **********************************
 // 56 x 30 x 20, hier mal alle Positionsdaten relativ --> wesentlich angenehmer zu programmieren
-// da so keine absoluten Positionsdaten berechnet werden müssen, sondern nur Größenangaben!
+// da so keine absoluten Positionsdaten berechnet werden mï¿½ssen, sondern nur Grï¿½ï¿½enangaben!
 declare reader_pos = <0,1,0>;
 declare reader_end = reader_pos+<0.069,0.02,0.03>;
 declare sd_1_pos = reader_pos+<0.007,0.011,0>;
@@ -194,11 +192,11 @@ declare card_reader = difference{
     }
 
     union{
-         // SD Karte Slot : 25x3x30 --> Etwas größer, aber nicht so tief wie SD-Karte groß ist.
+         // SD Karte Slot : 25x3x30 --> Etwas grï¿½ï¿½er, aber nicht so tief wie SD-Karte groï¿½ ist.
          box{sd_1_pos sd_1_pos+<0.024,0.003,0.028> pigment{color rgb<0.4,0.5,1>}}
          box{sd_2_pos sd_2_pos+<0.024,0.003,0.028> pigment{color rgb<0.4,0.5,1>}}
 
-         // langer Kartenslot, frei erfunden 2,.. x SD Karten Größe
+         // langer Kartenslot, frei erfunden 2,.. x SD Karten Grï¿½ï¿½e
          box{sd3_pos sd3_pos+<0.024*2+2*0.003,0.003,0.028> pigment{color rgb<0.4,0.5,1>}}
     }
 }
@@ -211,8 +209,8 @@ declare card_reader_cutout = box{reader_pos reader_end pigment{color Grey}}
  
 // ***********************   Mediabox   ********************************
 declare box_start = <0,1,0>;
-declare foot1 = box_start+<0.08,-0.01,0.05>;    // relative Fußposition
-declare foot2 = foot1+<-2*0.08+0.4,0,0>;        // relative Fußposition 2
+declare foot1 = box_start+<0.08,-0.01,0.05>;    // relative Fuï¿½position
+declare foot2 = foot1+<-2*0.08+0.4,0,0>;        // relative Fuï¿½position 2
 
 declare mediabox_no_ports = 
 union{    
@@ -230,7 +228,7 @@ union{
         cylinder{box_start+<0.3,0.10,0.25> box_start+<0.3,0.25,0.25> 0.002 }       // Antenne
         cylinder{box_start+<0.32,0.10,0.25> box_start+<0.32,0.30,0.25> 0.002 }     // Antenne 2
         
-        // zylindrische Füße 5 höhe x 2 durchmesser, relativ
+        // zylindrische Fï¿½ï¿½e 5 hï¿½he x 2 durchmesser, relativ
         cylinder{foot1 foot1+<0,0.05,0> 0.02 pigment{color Black}}
         cylinder{foot1+<0,0,0.27-2*0.05> foot1+<0,0.05,0.27-2*0.05> 0.02 pigment{color Black}}
         cylinder{foot2 foot2+<0,0.05,0> 0.02 pigment{color Black}}
@@ -238,24 +236,24 @@ union{
     }
 }
 
-// Vorlage um alle Einbauschächte auszuschneiden
+// Vorlage um alle Einbauschï¿½chte auszuschneiden
 declare port_cutout = union{
 object{usb_cutout translate<0.12,0.055,-0.001>}
 object{usb_cutout translate<0.15,0.055,-0.001>}
 object{usb_cutout translate<0.18,0.055,-0.001>}
 object{card_reader_cutout translate<0.12,0.029,-0.001>}}
 
-// Alle Einbauschächte belegen
+// Alle Einbauschï¿½chte belegen
 declare port_buildin = union{
 object{usb_port translate<0.12,0.055,0>}
 object{usb_port translate<0.15,0.055,0>}
 object{usb_port translate<0.18,0.055,0>}
 object{card_reader translate<0.12,0.029,0>}
-// Zusätzlich kleinen Bildschrim hinzufügen
+// Zusï¿½tzlich kleinen Bildschrim hinzufï¿½gen
 box{box_start+<0.12,0.068,-0.0005> box_start+<0.28,0.105,0.02> pigment{color rgb<0,0.3,0.9>}}
 }
 
-// Mediabox besteht dann aus Box ohne Schnittstellen + Einbauschächte + Geräte
+// Mediabox besteht dann aus Box ohne Schnittstellen + Einbauschï¿½chte + Gerï¿½te
 declare mediabox = union{
     object{port_buildin}
     difference{
@@ -275,18 +273,18 @@ light_source{<1500,2500,-2500> color White}    // Sonne
 //light_source{pos_halle1+<x_size/2,height-1,z_size/2> color White}
 sky_sphere{ pigment{ color rgb<0,0.2,0.9> }}
 
-// grüne Ebene, outdoor
+// grï¿½ne Ebene, outdoor
 plane { y, 0 pigment {color rgb <0.2,0.8,0.2>}} 
 
 object{Messhalle_mit_Eingang}
 
-// Podest für Messestand
+// Podest fï¿½r Messestand
 box {p_front p_top+<0,0.2,0> texture{T_Wood3} }  
 
 // Roter Teppich bis zum Messestand
 box {<30,0,1>,<31,0.15,40> pigment{color Red} } 
 
-// Tische diagonal auf Fläche stellen, stehen im Boden ^^
+// Tische diagonal auf Flï¿½che stellen, stehen im Boden ^^
 object{tisch rotate <0,125,0> translate p_front+<-5,0,7>}
 object{tisch rotate <0,110,0> translate p_front+<-7,0,4>}
 object{tisch rotate <0,145,0> translate p_front+<-2,0,9.3>}
@@ -296,7 +294,7 @@ object{tisch rotate <0,145,0> translate p_front+<-2,0,9.3>}
 object{poster rotate<0,20,0> translate p_front+<-7.5,0.2,5>}
 object{poster rotate<0,43,0> translate p_front+<-5,0.2,8.5>}   
 
-// Mediabox aufstellen, Tischhöhe: 1.25 + 0.05 Fußhöhe von der Mediabox
+// Mediabox aufstellen, Tischhï¿½he: 1.25 + 0.05 Fuï¿½hï¿½he von der Mediabox
 object{mediabox rotate <0,125-180,0> translate p_front+<-5.3,0.25+0.005,5.4>}
 object{mediabox rotate <0,110-180-3,0> translate p_front+<-6.8,0.25+0.005,2.4>}
 object{mediabox rotate <0,145-180,0> translate p_front+<-2.8,0.25+0.005,7.9>} 
